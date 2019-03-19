@@ -22,5 +22,7 @@ mkShell {
     # Put the PostgreSQL databases in the project diretory.
     shellHook = ''
       export PGDATA="$PWD/db"
+      glibcLocales=$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)
+      export LOCALE_ARCHIVE_2_27="${glibcLocales}/lib/locale/locale-archive"
     '';
 }
