@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(CdpProAlerts.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(CdpPro.Repo, :manual)

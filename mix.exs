@@ -1,9 +1,9 @@
-defmodule CdpProAlerts.MixProject do
+defmodule CdpPro.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :cdp_pro_alerts,
+      app: :cdp_pro,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule CdpProAlerts.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {CdpProAlerts.Application, []},
+      mod: {CdpPro.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

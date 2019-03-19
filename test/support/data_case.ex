@@ -1,4 +1,4 @@
-defmodule CdpProAlerts.DataCase do
+defmodule CdpPro.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule CdpProAlerts.DataCase do
 
   using do
     quote do
-      alias CdpProAlerts.Repo
+      alias CdpPro.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import CdpProAlerts.DataCase
+      import CdpPro.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CdpProAlerts.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CdpPro.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CdpProAlerts.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(CdpPro.Repo, {:shared, self()})
     end
 
     :ok

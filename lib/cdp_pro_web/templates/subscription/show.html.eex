@@ -1,0 +1,23 @@
+<h1>Show Subscription</h1>
+
+<ul>
+
+  <li>
+    <strong>Cdp:</strong>
+    <%= @subscription.cdp_id %>
+  </li>
+
+  <li>
+    <strong>Warn ratio:</strong>
+    <%= @subscription.warn_ratio %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @subscription.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.subscription_path(@conn, :edit, @subscription) %></span>
+<span><%= link "Back", to: Routes.subscription_path(@conn, :index) %></span>
