@@ -7,6 +7,21 @@ defmodule CdpPro.Alert do
   alias CdpPro.Repo
   alias CdpPro.Alert.Subscription
 
+  # TODO: update docs
+  @doc false
+  def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
+    case Repo.get_by(Subscription, %{cdp_id: cdp_id, email: email}) do
+      nil -> %Subscription{}
+      subscription -> subscription
+    end
+    |> Subscription.changeset(attrs)
+    |> Repo.insert_or_update
+  end
+
+  def create_or_update_subscription(_) do
+    {:error, :invalid_params}
+  end
+
   @doc """
   Returns the list of subscriptions.
 
@@ -35,31 +50,6 @@ defmodule CdpPro.Alert do
 
   """
   def get_subscription!(id), do: Repo.get!(Subscription, id)
-
-  @doc """
-  Creates a subscription.
-
-  ## Examples
-
-      iex> create_subscription(%{field: value})
-      {:ok, %Subscription{}}
-
-      iex> create_subscription(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
-    case Repo.get_by(Subscription, %{cdp_id: cdp_id, email: email}) do
-      nil -> %Subscription{}
-      subscription -> subscription
-    end
-    |> Subscription.changeset(attrs)
-    |> Repo.insert_or_update
-  end
-
-  def create_or_update_subscription(_) do
-    {:error, :invalid_params}
-  end
 
   @doc """
   Updates a subscription.
