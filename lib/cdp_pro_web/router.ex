@@ -16,8 +16,9 @@ defmodule CdpProWeb.Router do
   scope "/", CdpProWeb do
     pipe_through :api
 
-    post "/subscriptions", SubscriptionController, :create
+    post "/setup_alert", SubscriptionController, :create
   end
+
   scope "/", CdpProWeb do
     pipe_through :browser
 

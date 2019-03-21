@@ -1,11 +1,21 @@
 defmodule CdpProWeb.ErrorView do
   use CdpProWeb, :view
 
-  # If you want to customize a particular status code
-  # for a certain format, you may uncomment below.
-  # def render("500.html", _assigns) do
-  #   "Internal Server Error"
-  # end
+  def render("400.json", %{changeset: changeset}) do
+    require Logger
+    Logger.info "rendering 400.json"
+    %{
+      status: "failure",
+      errors: Ecto.Changeset.traverse_errors(changeset, &translate_error/1)
+    }
+  end
+
+  def render("400.json", assigns) do
+    %{
+      status: "failure",
+      errors: "bad request"
+    }
+  end
 
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.html" becomes

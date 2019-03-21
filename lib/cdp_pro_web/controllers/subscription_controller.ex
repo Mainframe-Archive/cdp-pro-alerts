@@ -3,6 +3,29 @@ defmodule CdpProWeb.SubscriptionController do
 
   alias CdpPro.Alert
   alias CdpPro.Alert.Subscription
+  alias CdpProWeb.ErrorView
+
+  def create(conn, subscription_params) do
+    case Alert.create_or_update_subscription(subscription_params) do
+      {:ok, subscription} ->
+        conn
+        |> put_status(204)
+        |> text("")
+
+      {:error, :invalid_params} ->
+        conn
+        |> put_status(400)
+        |> json(%{errors: "Params are invalid", status: "failure"})
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        conn
+        |> put_status(400)
+        |> put_view(ErrorView)
+        |> render("400.json", %{changeset: changeset})
+    end
+  end
+
+  # Scaffolding
 
   def index(conn, _params) do
     subscriptions = Alert.list_subscriptions()
@@ -14,16 +37,9 @@ defmodule CdpProWeb.SubscriptionController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"subscription" => subscription_params}) do
-    case Alert.create_subscription(subscription_params) do
-      {:ok, subscription} ->
-        conn
-        |> put_flash(:info, "Subscription created successfully.")
-        |> redirect(to: Routes.subscription_path(conn, :show, subscription))
-
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
-    end
+  def create(conn, params) do
+    subscriptions = Alert.list_subscriptions()
+    render(conn, "index.html", subscriptions: subscriptions)
   end
 
   def show(conn, %{"id" => id}) do
@@ -43,7 +59,7 @@ defmodule CdpProWeb.SubscriptionController do
     case Alert.update_subscription(subscription, subscription_params) do
       {:ok, subscription} ->
         conn
-        |> put_flash(:info, "Subscription updated successfully.")
+        # |> put_flash(:info, "Subscription updated successfully.")
         |> redirect(to: Routes.subscription_path(conn, :show, subscription))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -56,7 +72,7 @@ defmodule CdpProWeb.SubscriptionController do
     {:ok, _subscription} = Alert.delete_subscription(subscription)
 
     conn
-    |> put_flash(:info, "Subscription deleted successfully.")
+    # |> put_flash(:info, "Subscription deleted successfully.")
     |> redirect(to: Routes.subscription_path(conn, :index))
   end
 end

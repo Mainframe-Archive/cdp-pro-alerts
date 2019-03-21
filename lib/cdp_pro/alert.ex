@@ -5,7 +5,6 @@ defmodule CdpPro.Alert do
 
   import Ecto.Query, warn: false
   alias CdpPro.Repo
-
   alias CdpPro.Alert.Subscription
 
   @doc """
@@ -49,10 +48,17 @@ defmodule CdpPro.Alert do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_subscription(attrs \\ %{}) do
-    %Subscription{}
+  def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
+    case Repo.get_by(Subscription, %{cdp_id: cdp_id, email: email}) do
+      nil -> %Subscription{}
+      subscription -> subscription
+    end
     |> Subscription.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert_or_update
+  end
+
+  def create_or_update_subscription(_) do
+    {:error, :invalid_params}
   end
 
   @doc """

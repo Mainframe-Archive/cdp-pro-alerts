@@ -15,7 +15,7 @@ config :cdp_pro,
 config :cdp_pro, CdpProWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "eYVf5hunEeGJ8M51GmLPDVjXXcId3DlU1cNNgideY88SzhFMCt+IiaAdMOD2+roS",
-  render_errors: [view: CdpProWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: CdpProWeb.ErrorView, accepts: ~w(json html)],
   pubsub: [name: CdpPro.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
