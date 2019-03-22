@@ -22,6 +22,36 @@ defmodule CdpPro.Alert do
     {:error, :invalid_params}
   end
 
+  # TODO: update docs
+  @doc false
+  def enable_subscription(id) do
+    Repo.get(Subscription, id)
+    case Repo.get(Subscription, id) do
+      nil ->
+        {:error, :subscription_not_found}
+      subscription ->
+        enabled_subscription = subscription
+        |> Subscription.changeset(%{enabled: true})
+        |> Repo.update
+        {:ok, enabled_subscription}
+    end
+  end
+
+  # TODO: update docs
+  @doc false
+  def disable_subscription(id) do
+    Repo.get(Subscription, id)
+    case Repo.get(Subscription, id) do
+      nil ->
+        {:error, :subscription_not_found}
+      subscription ->
+        enabled_subscription = subscription
+        |> Subscription.changeset(%{enabled: false})
+        |> Repo.update
+        {:ok, enabled_subscription}
+    end
+  end
+
   @doc """
   Returns the list of subscriptions.
 

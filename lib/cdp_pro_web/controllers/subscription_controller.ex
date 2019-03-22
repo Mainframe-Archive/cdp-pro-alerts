@@ -25,6 +25,30 @@ defmodule CdpProWeb.SubscriptionController do
     end
   end
 
+  def confirm(conn, %{"id" => id}) do
+    case Alert.enable_subscription(id) do
+      {:error, :subscription_not_found} ->
+        conn
+        |> put_status(404)
+        |> put_view(ErrorView)
+      {:ok, subscription} ->
+        conn
+        |> render("confirm.html", subscription: subscription)
+    end
+  end
+
+  def unsubscribe(conn, %{"id" => id}) do
+    case Alert.disable_subscription(id) do
+      {:error, :subscription_not_found} ->
+        conn
+        |> put_status(404)
+        |> put_view(ErrorView)
+      {:ok, subscription} ->
+        conn
+        |> render("unsubscribe.html", subscription: subscription)
+    end
+  end
+
   # Scaffolding
 
   def index(conn, _params) do

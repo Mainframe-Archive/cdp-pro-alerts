@@ -23,6 +23,8 @@ defmodule CdpProWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/confirm", SubscriptionController, :confirm
+    get "/unsubscribe", SubscriptionController, :unsubscribe
     resources "/subscriptions", SubscriptionController
   end
 

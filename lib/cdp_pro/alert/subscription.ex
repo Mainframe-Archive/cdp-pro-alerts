@@ -8,6 +8,7 @@ defmodule CdpPro.Alert.Subscription do
     field :cdp_id, :integer
     field :email, :string
     field :warn_ratio, :integer
+    field :enabled, :boolean
 
     timestamps()
   end

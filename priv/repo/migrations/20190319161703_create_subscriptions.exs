@@ -7,6 +7,7 @@ defmodule CdpPro.Repo.Migrations.CreateSubscriptions do
       add :cdp_id, :integer
       add :warn_ratio, :integer
       add :email, :string
+      add :enabled, :boolean, default: false
 
       timestamps()
     end
