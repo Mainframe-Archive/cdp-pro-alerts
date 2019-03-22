@@ -12,5 +12,6 @@ defmodule CdpPro.Repo.Migrations.CreateSubscriptions do
       timestamps()
     end
 
+    create unique_index(:subscriptions, [:cdp_id, :email], name: :subscriptions_index)
   end
 end

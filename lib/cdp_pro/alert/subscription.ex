@@ -18,5 +18,6 @@ defmodule CdpPro.Alert.Subscription do
     subscription
     |> cast(attrs, [:cdp_id, :warn_ratio, :email, :enabled])
     |> validate_required([:cdp_id, :warn_ratio, :email])
+    |> unique_constraint(:unique_subscription, name: :subscriptions_index)
   end
 end
