@@ -16,7 +16,7 @@ defmodule CdpPro.Alert.Subscription do
   @doc false
   def changeset(subscription, attrs) do
     subscription
-    |> cast(attrs, [:cdp_id, :warn_ratio, :email])
+    |> cast(attrs, [:cdp_id, :warn_ratio, :email, :enabled])
     |> validate_required([:cdp_id, :warn_ratio, :email])
   end
 end

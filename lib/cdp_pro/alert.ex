@@ -30,10 +30,9 @@ defmodule CdpPro.Alert do
       nil ->
         {:error, :subscription_not_found}
       subscription ->
-        enabled_subscription = subscription
+        subscription
         |> Subscription.changeset(%{enabled: true})
         |> Repo.update
-        {:ok, enabled_subscription}
     end
   end
 
