@@ -5,7 +5,7 @@ defmodule CdpPro.Email do
 
   def confirm_subscription_email(conn, subscription) do
     text = "Please confirm your subscription to CDP PRO notifications by clicking on the following link: "
-    url = Routes.subscription_path(conn, :confirm, %{id: subscription.id})
+    url = Routes.subscription_url(conn, :confirm, %{id: subscription.id})
     new_email(
       to: subscription.email,
       from: "support@mainframe.com",
