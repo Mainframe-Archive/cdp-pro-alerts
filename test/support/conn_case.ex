@@ -1,4 +1,4 @@
-defmodule CdpProAlertsWeb.ConnCase do
+defmodule CdpProWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule CdpProAlertsWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias CdpProAlertsWeb.Router.Helpers, as: Routes
+      alias CdpProWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint CdpProAlertsWeb.Endpoint
+      @endpoint CdpProWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CdpProAlerts.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CdpPro.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CdpProAlerts.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(CdpPro.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

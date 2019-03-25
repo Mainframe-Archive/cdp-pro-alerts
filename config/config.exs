@@ -7,15 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :cdp_pro_alerts,
-  ecto_repos: [CdpProAlerts.Repo]
+config :cdp_pro,
+  ecto_repos: [CdpPro.Repo],
+  generators: [binary_id: true]
 
 # Configures the endpoint
-config :cdp_pro_alerts, CdpProAlertsWeb.Endpoint,
+config :cdp_pro, CdpProWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "SqbluEWkjvgIGexlXmJ4akTOqS0c4CmA8+zXUL5Uajo7gvdutwAczBOlDEdhMbmG",
-  render_errors: [view: CdpProAlertsWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CdpProAlerts.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "eYVf5hunEeGJ8M51GmLPDVjXXcId3DlU1cNNgideY88SzhFMCt+IiaAdMOD2+roS",
+  render_errors: [view: CdpProWeb.ErrorView, accepts: ~w(json html)],
+  pubsub: [name: CdpPro.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
