@@ -2,8 +2,6 @@ defmodule CdpProWeb.ErrorView do
   use CdpProWeb, :view
 
   def render("400.json", %{changeset: changeset}) do
-    require Logger
-    Logger.info "rendering 400.json"
     %{
       status: "failure",
       errors: Ecto.Changeset.traverse_errors(changeset, &translate_error/1)
