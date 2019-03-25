@@ -16,3 +16,6 @@ config :cdp_pro, CdpPro.Repo,
   database: "cdp_pro_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :cdp_pro, CdpPro.Mailer,
+  adapter: Bamboo.TestAdapter
