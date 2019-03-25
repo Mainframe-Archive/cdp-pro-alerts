@@ -3,11 +3,18 @@ defmodule CdpProWeb.SubscriptionController do
 
   alias CdpPro.Alert
   alias CdpPro.Alert.Subscription
+  alias CdpPro.Email
+  alias CdpPro.Mailer
   alias CdpProWeb.ErrorView
 
   def create(conn, subscription_params) do
     case Alert.create_or_update_subscription(subscription_params) do
       {:ok, subscription} ->
+        unless subscription.enabled do
+          Email.confirm_subscription_email(conn, subscription.id)
+          |> Mailer.deliver_later()
+        end
+
         conn
         |> put_status(204)
         |> text("")
@@ -19,8 +26,8 @@ defmodule CdpProWeb.SubscriptionController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
-        |> put_status(400)
         |> put_view(ErrorView)
+        |> put_status(400)
         |> render("400.json", %{changeset: changeset})
     end
   end
@@ -29,8 +36,9 @@ defmodule CdpProWeb.SubscriptionController do
     case Alert.enable_subscription(id) do
       {:error, :subscription_not_found} ->
         conn
-        |> put_status(404)
         |> put_view(ErrorView)
+        |> put_status(404)
+        |> render("404.html")
       {:ok, subscription} ->
         conn
         |> render("confirm.html", subscription: subscription)
@@ -41,8 +49,9 @@ defmodule CdpProWeb.SubscriptionController do
     case Alert.disable_subscription(id) do
       {:error, :subscription_not_found} ->
         conn
-        |> put_status(404)
         |> put_view(ErrorView)
+        |> put_status(404)
+        |> render("404.html")
       {:ok, subscription} ->
         conn
         |> render("unsubscribe.html", subscription: subscription)

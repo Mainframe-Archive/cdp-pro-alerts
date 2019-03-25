@@ -28,4 +28,8 @@ defmodule CdpProWeb.Router do
     resources "/subscriptions", SubscriptionController
   end
 
+  if Mix.env == :dev do
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
+  end
+
 end
