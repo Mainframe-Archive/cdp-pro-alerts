@@ -11,8 +11,8 @@ defmodule CdpProWeb.SubscriptionController do
     case Alert.create_or_update_subscription(subscription_params) do
       {:ok, subscription} ->
         unless subscription.enabled do
-          Email.confirm_subscription_email(conn, subscription.id)
           |> Mailer.deliver_later()
+          Email.confirm_subscription_email(conn, subscription)
         end
 
         conn
