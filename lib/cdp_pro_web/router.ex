@@ -25,7 +25,6 @@ defmodule CdpProWeb.Router do
     get "/", PageController, :index
     get "/confirm", SubscriptionController, :confirm
     get "/unsubscribe", SubscriptionController, :unsubscribe
-    resources "/subscriptions", SubscriptionController
   end
 
   if Mix.env == :dev do
