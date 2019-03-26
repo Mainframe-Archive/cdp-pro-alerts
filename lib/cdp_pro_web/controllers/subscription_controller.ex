@@ -32,7 +32,7 @@ defmodule CdpProWeb.SubscriptionController do
   end
 
   def confirm(conn, %{"id" => id}) do
-    case Alert.enable_subscription(id) do
+    case Alert.update_subscription_status(id, true) do
       {:error, :subscription_not_found} ->
         conn
         |> put_view(ErrorView)
@@ -45,7 +45,7 @@ defmodule CdpProWeb.SubscriptionController do
   end
 
   def unsubscribe(conn, %{"id" => id}) do
-    case Alert.disable_subscription(id) do
+    case Alert.update_subscription_status(id, false) do
       {:error, :subscription_not_found} ->
         conn
         |> put_view(ErrorView)

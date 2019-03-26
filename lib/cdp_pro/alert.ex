@@ -24,30 +24,15 @@ defmodule CdpPro.Alert do
 
   # TODO: update docs
   @doc false
-  def enable_subscription(id) do
+  def update_subscription_status(id, status) do
     Repo.get(Subscription, id)
     case Repo.get(Subscription, id) do
       nil ->
         {:error, :subscription_not_found}
       subscription ->
         subscription
-        |> Subscription.changeset(%{enabled: true})
+        |> Subscription.changeset(%{enabled: status})
         |> Repo.update
-    end
-  end
-
-  # TODO: update docs
-  @doc false
-  def disable_subscription(id) do
-    Repo.get(Subscription, id)
-    case Repo.get(Subscription, id) do
-      nil ->
-        {:error, :subscription_not_found}
-      subscription ->
-        enabled_subscription = subscription
-        |> Subscription.changeset(%{enabled: false})
-        |> Repo.update
-        {:ok, enabled_subscription}
     end
   end
 end
