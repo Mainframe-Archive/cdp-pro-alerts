@@ -8,14 +8,14 @@ defmodule CdpProWeb.ErrorView do
     }
   end
 
-  def render("400.json", assigns) do
+  def render("400.json", _assigns) do
     %{
       status: "failure",
       errors: "bad request"
     }
   end
 
-  def render("404.html", assigns) do
+  def render("404.html", _assigns) do
     "Not Found"
   end
   # By default, Phoenix returns the status message from
