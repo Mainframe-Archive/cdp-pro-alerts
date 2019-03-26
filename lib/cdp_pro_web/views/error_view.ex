@@ -16,7 +16,7 @@ defmodule CdpProWeb.ErrorView do
   end
 
   def render("404.html", assigns) do
-    "Not found"
+    "Not Found"
   end
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.html" becomes
