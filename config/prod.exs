@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :cdp_pro, CdpProWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
+  url: [host: System.get_env("HOST"), port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -19,7 +19,14 @@ config :logger, level: :info
 
 config :cdp_pro, CdpPro.Mailer,
   adapter: Bamboo.SendGridAdapter,
-  api_key: {:system, "SENDGRID_API_KEY"}
+  api_key: System.get_env("SENDGRID_API_KEY")
+
+# Configure your database
+config :cdp_pro, CdpPro.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
 
 # ## SSL Support
 #
@@ -72,4 +79,3 @@ config :cdp_pro, CdpPro.Mailer,
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"

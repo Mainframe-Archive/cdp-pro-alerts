@@ -14,7 +14,7 @@ config :cdp_pro,
 # Configures the endpoint
 config :cdp_pro, CdpProWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "eYVf5hunEeGJ8M51GmLPDVjXXcId3DlU1cNNgideY88SzhFMCt+IiaAdMOD2+roS",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: CdpProWeb.ErrorView, accepts: ~w(json html)],
   pubsub: [name: CdpPro.PubSub, adapter: Phoenix.PubSub.PG2]
 
