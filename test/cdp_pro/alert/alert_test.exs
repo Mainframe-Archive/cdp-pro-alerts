@@ -6,63 +6,58 @@ defmodule CdpPro.AlertTest do
   describe "subscriptions" do
     alias CdpPro.Alert.Subscription
 
-    @valid_attrs %{cdp_id: 42, email: "some email", warn_ratio: 42}
-    @update_attrs %{cdp_id: 43, email: "some updated email", warn_ratio: 43}
-    @invalid_attrs %{cdp_id: nil, email: nil, warn_ratio: nil}
+    @create_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => 50}
+    @update_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => 100}
+    @invalid_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => ""}
 
     def subscription_fixture(attrs \\ %{}) do
       {:ok, subscription} =
         attrs
-        |> Enum.into(@valid_attrs)
-        |> Alert.create_subscription()
+        |> Enum.into(@create_attrs)
+        |> Alert.create_or_update_subscription()
 
       subscription
     end
 
-    test "list_subscriptions/0 returns all subscriptions" do
+    def enabled_subscription_fixture() do
+      subscription = subscription_fixture(@create_attrs)
+      Alert.update_subscription_status(subscription.id, true)
+    end
+
+    test "create_or_update_subscription/1 with valid params creates a subscription" do
+      assert {:ok, %Subscription{} = subscription} = Alert.create_or_update_subscription(@create_attrs)
+      assert subscription.cdp_id == @create_attrs["cdp_id"]
+      assert subscription.email == @create_attrs["email"]
+      assert subscription.warn_ratio == @create_attrs["warn_ratio"]
+    end
+
+    test "create_or_update_subscription/1 with invalid params returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Alert.create_or_update_subscription(@invalid_attrs)
+    end
+
+    test "create_or_update_subscription/1 with valid params updates an existing subscription" do
+      existing_subscription = subscription_fixture()
+      assert {:ok, %Subscription{} = subscription} = Alert.create_or_update_subscription(@update_attrs)
+      assert subscription.cdp_id == existing_subscription.cdp_id
+      assert subscription.email == existing_subscription.email
+      assert subscription.warn_ratio == @update_attrs["warn_ratio"]
+    end
+
+    test "update_subscription_status/2 with valid data can enable new subscription" do
       subscription = subscription_fixture()
-      assert Alert.list_subscriptions() == [subscription]
+      assert {:ok, %Subscription{} = subscription} = Alert.update_subscription_status(subscription.id, true)
+      assert subscription.enabled == true
     end
 
-    test "get_subscription!/1 returns the subscription with given id" do
+    test "update_subscription_status/2 with valid data can disable enabled subscription" do
       subscription = subscription_fixture()
-      assert Alert.get_subscription!(subscription.id) == subscription
+      assert {:ok, %Subscription{} = subscription} = Alert.update_subscription_status(subscription.id, false)
+      assert subscription.enabled == false
     end
 
-    test "create_subscription/1 with valid data creates a subscription" do
-      assert {:ok, %Subscription{} = subscription} = Alert.create_subscription(@valid_attrs)
-      assert subscription.cdp_id == 42
-      assert subscription.email == "some email"
-      assert subscription.warn_ratio == 42
-    end
-
-    test "create_subscription/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Alert.create_subscription(@invalid_attrs)
-    end
-
-    test "update_subscription/2 with valid data updates the subscription" do
+    test "update_subscription_status/2 with invalid data returns an error" do
       subscription = subscription_fixture()
-      assert {:ok, %Subscription{} = subscription} = Alert.update_subscription(subscription, @update_attrs)
-      assert subscription.cdp_id == 43
-      assert subscription.email == "some updated email"
-      assert subscription.warn_ratio == 43
-    end
-
-    test "update_subscription/2 with invalid data returns error changeset" do
-      subscription = subscription_fixture()
-      assert {:error, %Ecto.Changeset{}} = Alert.update_subscription(subscription, @invalid_attrs)
-      assert subscription == Alert.get_subscription!(subscription.id)
-    end
-
-    test "delete_subscription/1 deletes the subscription" do
-      subscription = subscription_fixture()
-      assert {:ok, %Subscription{}} = Alert.delete_subscription(subscription)
-      assert_raise Ecto.NoResultsError, fn -> Alert.get_subscription!(subscription.id) end
-    end
-
-    test "change_subscription/1 returns a subscription changeset" do
-      subscription = subscription_fixture()
-      assert %Ecto.Changeset{} = Alert.change_subscription(subscription)
+      assert {:error, %Ecto.Changeset{}} = Alert.update_subscription_status(subscription.id, "invalid")
     end
   end
 end
