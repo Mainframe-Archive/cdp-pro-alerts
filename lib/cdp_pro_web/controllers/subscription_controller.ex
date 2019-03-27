@@ -15,8 +15,8 @@ defmodule CdpProWeb.SubscriptionController do
         end
 
         conn
-        |> put_status(204)
-        |> text("")
+        |> put_status(200)
+        |> json(%{status: "success"})
 
       {:error, :invalid_params} ->
         conn
