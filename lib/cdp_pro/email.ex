@@ -8,7 +8,7 @@ defmodule CdpPro.Email do
     url = Routes.subscription_url(conn, :confirm, %{id: subscription.id})
     new_email(
       to: subscription.email,
-      from: "support@mainframe.com",
+      from: "cdp-pro-alerts@mainframe.com",
       subject: "Confirm your subscription to CDP PRO alerts",
       html_body: "<p>#{text} <a href='#{url}'><strong>Confirm Subscription</strong><a></p>",
       text_body: text <> url
