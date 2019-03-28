@@ -169,7 +169,7 @@
                                             <table class="wrapper" role="module" data-type="image" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
                                               <tr>
                                                 <td style="font-size:6px;line-height:10px;padding:0px 0px 0px 0px;" valign="top" align="center">
-                                                  <img class="max-width" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica, arial, sans-serif;font-size:16px;max-width:100% !important;width:100%;height:auto !important;" src="https://marketing-image-production.s3.amazonaws.com/uploads/5d5fa5656bf5449ae4118fc02d1ec190ed54a2f2948b50af6d0ea3e5cbf8587840de2569bd1c535e9fbed01d6bc008300ee5e314261ed99af9639c6c7d441043.png" alt="" width="300" border="0">
+                                                  Test content
                                                 </td>
                                               </tr>
                                             </table>
@@ -205,7 +205,7 @@
                                                     valign="top"
                                                     bgcolor="">
                                                   <div class="im">
-                                                    <p>Please confirm your subscription to CDP PRO notifications by clicking on the following link: <a data-saferedirecturl="https://www.google.com/url?q=http://cdp-pro-alerts.mainframe.com/confirm?id%3Dd383abc9-efc0-46c4-aa2e-cce371b87c6b&amp;source=gmail&amp;ust=1553873085730000&amp;usg=AFQjCNE2wERU6d9Lpf4paZI-CZnnSWV3GA" href="http://cdp-pro-alerts.mainframe.com/confirm?id=d383abc9-efc0-46c4-aa2e-cce371b87c6b" target="_blank"><strong>Confirm Subscription</strong></a></p>
+                                                    <p>Please confirm your subscription to CDP PRO notifications by clicking on the following link: <a href="http://cdp-pro-alerts.mainframe.com/confirm?id=d383abc9-efc0-46c4-aa2e-cce371b87c6b" target="_blank"><strong>Confirm Subscription</strong></a></p>
                                                   </div>
                                                 </td>
                                               </tr>
