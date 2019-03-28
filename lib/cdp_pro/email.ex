@@ -10,6 +10,6 @@ defmodule CdpPro.Email do
     |> put_text_layout({CdpProWeb.LayoutView, "email.text"})
     |> put_html_layout({CdpProWeb.LayoutView, "email.html"})
     |> subject("Confirm your subscription to CDP PRO alerts")
-    |> render("email.html")
+    |> render(:text_and_html_email)
   end
 end
