@@ -10,7 +10,7 @@ defmodule CdpProWeb.SubscriptionController do
     case Alert.create_or_update_subscription(subscription_params) do
       {:ok, subscription} ->
         unless subscription.enabled do
-          Email.confirm_subscription_email(conn, subscription)
+          Email.confirm_subscription_email(subscription)
           |> Mailer.deliver_now()
         end
 
