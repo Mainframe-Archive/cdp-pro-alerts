@@ -7,6 +7,7 @@ defmodule CdpPro.Email do
   def confirm_subscription_email(subscription) do
     new_email(from: "cdp-pro-alerts@mainframe.com")
     |> to(subscription.email)
+    |> put_text_layout({CdpProWeb.LayoutView, "email.text"})
     |> put_html_layout({CdpProWeb.LayoutView, "email.html"})
     |> subject("Confirm your subscription to CDP PRO alerts")
     |> render("email.html")
