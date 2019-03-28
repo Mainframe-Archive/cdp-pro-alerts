@@ -1,4 +1,5 @@
 defmodule CdpPro.Email do
+  use Bamboo.Phoenix, view: CdpProWeb.EmailView
   import Bamboo.Email
 
   alias CdpProWeb.Router.Helpers, as: Routes
