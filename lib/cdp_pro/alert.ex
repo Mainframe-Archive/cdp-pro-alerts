@@ -15,7 +15,7 @@ defmodule CdpPro.Alert do
       subscription -> subscription
     end
     |> Subscription.changeset(attrs)
-    |> Repo.insert_or_update
+    |> Repo.insert_or_update()
   end
 
   def create_or_update_subscription(_) do
@@ -26,13 +26,15 @@ defmodule CdpPro.Alert do
   @doc false
   def update_subscription_status(id, status) do
     Repo.get(Subscription, id)
+
     case Repo.get(Subscription, id) do
       nil ->
         {:error, :subscription_not_found}
+
       subscription ->
         subscription
         |> Subscription.changeset(%{enabled: status})
-        |> Repo.update
+        |> Repo.update()
     end
   end
 end

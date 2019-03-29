@@ -6,7 +6,7 @@ defmodule CdpProWeb.SubscriptionControllerTest do
   @create_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => 50}
   @update_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => 100}
   @invalid_attrs %{"cdp_id" => 42, "email" => "someone@example.com", "warn_ratio" => ""}
-  @random_id Ecto.UUID.generate
+  @random_id Ecto.UUID.generate()
 
   def fixture(:new_subscription) do
     {:ok, subscription} = Alert.create_or_update_subscription(@create_attrs)
@@ -34,15 +34,24 @@ defmodule CdpProWeb.SubscriptionControllerTest do
 
     test "returns an error when params are completely invalid", %{conn: conn} do
       conn = post(conn, Routes.subscription_path(conn, :create), subscription: @invalid_attrs)
-      assert json_response(conn, 400) == %{"errors" => "Params are invalid", "status" => "failure"}
+
+      assert json_response(conn, 400) == %{
+               "errors" => "Params are invalid",
+               "status" => "failure"
+             }
     end
 
-    test "returns a more specific error when correct param keys have invalid values", %{conn: conn} do
+    test "returns a more specific error when correct param keys have invalid values", %{
+      conn: conn
+    } do
       conn = post(conn, Routes.subscription_path(conn, :create), @invalid_attrs)
-      assert json_response(conn, 400) == %{"errors" => %{"warn_ratio" => ["can't be blank"]}, "status" => "failure"}
+
+      assert json_response(conn, 400) == %{
+               "errors" => %{"warn_ratio" => ["can't be blank"]},
+               "status" => "failure"
+             }
     end
   end
-
 
   describe "confirm subscription or unsubscribe" do
     test "valid id successfully confirms subscription", %{conn: conn} do

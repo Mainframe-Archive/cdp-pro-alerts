@@ -74,6 +74,4 @@ config :cdp_pro, CdpPro.Repo,
   hostname: "localhost",
   pool_size: 10
 
-config :cdp_pro, CdpPro.Mailer,
-  adapter: Bamboo.LocalAdapter
-
+config :cdp_pro, CdpPro.Mailer, adapter: Bamboo.LocalAdapter

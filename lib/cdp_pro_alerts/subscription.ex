@@ -2,7 +2,6 @@ defmodule CdpProAlerts.Subscription do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "subscriptions" do
     field :cdp_id, :integer
     field :email, :string

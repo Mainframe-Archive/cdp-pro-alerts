@@ -27,8 +27,7 @@ defmodule CdpProWeb.Router do
     get "/unsubscribe", SubscriptionController, :unsubscribe
   end
 
-  if Mix.env == :dev do
+  if Mix.env() == :dev do
     forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
-
 end

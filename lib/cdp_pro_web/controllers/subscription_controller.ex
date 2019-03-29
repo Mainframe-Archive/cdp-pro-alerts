@@ -38,6 +38,7 @@ defmodule CdpProWeb.SubscriptionController do
         |> put_view(ErrorView)
         |> put_status(404)
         |> render("404.html")
+
       {:ok, subscription} ->
         conn
         |> render("confirm.html", subscription: subscription)
@@ -51,6 +52,7 @@ defmodule CdpProWeb.SubscriptionController do
         |> put_view(ErrorView)
         |> put_status(404)
         |> render("404.html")
+
       {:ok, subscription} ->
         conn
         |> render("unsubscribe.html", subscription: subscription)
