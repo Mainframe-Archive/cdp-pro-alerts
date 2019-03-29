@@ -5,7 +5,7 @@ defmodule CdpPro.Email do
   alias CdpProWeb.Router.Helpers, as: Routes
 
   def confirm_subscription_email(subscription) do
-    new_email(from: "cdp-pro-alerts@mainframe.com")
+    new_email(from: "cdp-pro-alerts@mainframeos.com")
     |> to(subscription.email)
     |> put_layout({CdpProWeb.LayoutView, :email})
     |> subject("Confirm your subscription to CDP PRO alerts")
