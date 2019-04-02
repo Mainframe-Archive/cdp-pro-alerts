@@ -44,7 +44,8 @@ defmodule CdpPro.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:bamboo, "~> 1.2"},
-      {:poison, "~> 3.1"}
+      {:exw3, "~> 0.4.2"},
+      {:poison, "~> 4.0.1"}
     ]
   end
 
