@@ -25,5 +25,6 @@ mkShell {
       glibcLocales=$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)
       export LOCALE_ARCHIVE_2_27="${glibcLocales}/lib/locale/locale-archive"
       export SECRET_KEY_BASE="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      export TUB_CONTRACT_ADDRESS="0x448a5065aebb8e423f0896e6c5d525c040f59af3"
     '';
 }

@@ -29,6 +29,7 @@ config :phoenix, :json_library, Jason
 # Configures ExW3 library
 config :ethereumex,
   client_type: :http,
+  tub_contract_address: System.get_env("TUB_CONTRACT_ADDRESS"),
   url: "https://mainnet.infura.io/" <> System.get_env("INFURA_KEY")
 
 # Import environment specific config. This must remain at the bottom
