@@ -13,4 +13,13 @@ defmodule CdpPro.Email do
     |> subject("Confirm your subscription to CDP PRO alerts")
     |> render(:text_and_html_email)
   end
+
+  def warning_email(subscription) do
+    new_email()
+    |> from(@from_email)
+    |> to(subscription.email)
+    |> put_layout({CdpProWeb.LayoutView, :email})
+    |> text_body("Welcome")
+    |> subject("CDP PRO alert: Your collateralization ratio has reached the CDP Guard limit")
+  end
 end
