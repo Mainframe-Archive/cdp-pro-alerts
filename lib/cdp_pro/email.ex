@@ -1,7 +1,6 @@
 defmodule CdpPro.Email do
   use Bamboo.Phoenix, view: CdpProWeb.EmailView
   import Bamboo.Email
-  alias CdpProWeb.Router.Helpers, as: Routes
 
   @from_email Application.get_env(:cdp_pro, :subscriptions_email)
 
