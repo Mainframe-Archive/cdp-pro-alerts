@@ -19,9 +19,10 @@ defmodule CdpPro.Application do
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    init_contracts()
     opts = [strategy: :one_for_one, name: CdpPro.Supervisor]
-    Supervisor.start_link(children, opts)
+    {:ok, pid} = Supervisor.start_link(children, opts)
+    init_contracts()
+    {:ok, pid}
   end
 
   def init_contracts() do
