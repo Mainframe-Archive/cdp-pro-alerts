@@ -8,6 +8,10 @@ defmodule CdpPro.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      %{
+        id: ExW3.Contract,
+        start: {ExW3.Contract, :start_link, []}
+      },
       # Start the Ecto repository
       CdpPro.Repo,
       # Start the endpoint when the application starts
@@ -27,7 +31,6 @@ defmodule CdpPro.Application do
     tub_abi = ExW3.load_abi("abis/sai_tub.json")
     tub_contract_address = Application.get_env(:ethereumex, :tub_contract_address)
 
-    ExW3.Contract.start_link()
     ExW3.Contract.register(:Tub, abi: tub_abi)
     ExW3.Contract.at(:Tub, tub_contract_address)
   end
