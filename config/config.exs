@@ -9,7 +9,8 @@ use Mix.Config
 
 config :cdp_pro,
   ecto_repos: [CdpPro.Repo],
-  generators: [binary_id: true]
+  generators: [binary_id: true],
+  subscriptions_email: System.get_env("SUBSCRIPTION_EMAIL") || "cdp-pro-alerts@mainframeos.com"
 
 # Configures the endpoint
 config :cdp_pro, CdpProWeb.Endpoint,
