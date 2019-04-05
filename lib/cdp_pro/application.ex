@@ -12,12 +12,9 @@ defmodule CdpPro.Application do
         id: ExW3.Contract,
         start: {ExW3.Contract, :start_link, []}
       },
-      # Start the Ecto repository
       CdpPro.Repo,
-      # Start the endpoint when the application starts
-      CdpProWeb.Endpoint
-      # Starts a worker by calling: CdpPro.Worker.start_link(arg)
-      # {CdpPro.Worker, arg},
+      CdpProWeb.Endpoint,
+      CdpPro.Worker,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

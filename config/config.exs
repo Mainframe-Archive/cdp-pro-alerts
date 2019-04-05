@@ -30,7 +30,7 @@ config :phoenix, :json_library, Jason
 config :ethereumex,
   client_type: :http,
   tub_contract_address: System.get_env("TUB_CONTRACT_ADDRESS"),
-  url: "https://mainnet.infura.io/" <> System.get_env("INFURA_KEY")
+  url: "https://mainnet.infura.io/v3/" <> System.get_env("INFURA_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
