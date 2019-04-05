@@ -7,6 +7,12 @@ defmodule CdpPro.Alert do
   alias CdpPro.Repo
   alias CdpPro.Alert.Subscription
 
+  def get_all_active_subscriptions() do
+    Subscription
+    |> where([sub], sub.enabled)
+    |> Repo.all()
+  end
+
   # TODO: update docs
   @doc false
   def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
