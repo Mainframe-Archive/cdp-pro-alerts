@@ -43,4 +43,12 @@ defmodule CdpPro.Alert do
         |> Repo.update()
     end
   end
+
+  # TODO: update docs
+  @doc false
+  def update_last_triggered_time(id, time) do
+    Repo.get(Subscription, id)
+    |> Subscription.changeset(%{last_triggered: time})
+    |> Repo.update()
+  end
 end
