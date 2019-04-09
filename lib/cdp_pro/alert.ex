@@ -3,6 +3,8 @@ defmodule CdpPro.Alert do
   The Alert context.
   """
 
+  @unix_epoch NaiveDateTime.to_string(~N[1970-01-01 00:00:00.000000])
+
   import Ecto.Query, warn: false
   alias CdpPro.Repo
   alias CdpPro.Alert.Subscription
@@ -16,6 +18,7 @@ defmodule CdpPro.Alert do
   # TODO: update docs
   @doc false
   def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
+    attrs = Map.put_new(attrs, "last_triggered", @unix_epoch)
     case Repo.get_by(Subscription, %{cdp_id: cdp_id, email: email}) do
       nil -> %Subscription{}
       subscription -> subscription
