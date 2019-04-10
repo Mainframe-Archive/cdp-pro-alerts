@@ -1,1 +1,3 @@
 Your collateralization ratio has reached your notification limit of <%= @subscription.warn_ratio %>
+
+You can unsubscribe by using the following link: <%= CdpProWeb.Endpoint.url %>/unsubscribe?id=<%= @subscription.id %>
