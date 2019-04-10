@@ -7,7 +7,7 @@ defmodule CdpPro.Email do
     subscription
     |> base_email()
     |> subject("Confirm your subscription to CDP PRO alerts")
-    |> render(:text_and_html_email)
+    |> render(:confirm)
   end
 
   def warning_email(subscription) do

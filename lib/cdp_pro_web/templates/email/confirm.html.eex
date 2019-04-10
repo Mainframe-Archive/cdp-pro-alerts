@@ -1,0 +1,1 @@
+<p>Please confirm your subscription to CDP PRO notifications by clicking on the following link: <a href="<%= CdpProWeb.Endpoint.url %>/confirm?id=<%= @subscription.id %>">Confirm subscription<a></p>
