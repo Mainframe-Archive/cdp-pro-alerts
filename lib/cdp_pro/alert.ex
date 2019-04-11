@@ -19,7 +19,8 @@ defmodule CdpPro.Alert do
 
   # TODO: update docs
   @doc false
-  @spec create_or_update_subscription(map) :: {:ok, %Subscription{}} | {:error, :invalid_params} | {:error, %Ecto.Changeset{}}
+  @spec create_or_update_subscription(map) ::
+          {:ok, %Subscription{}} | {:error, :invalid_params} | {:error, %Ecto.Changeset{}}
 
   def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
     attrs = Map.put_new(attrs, "last_triggered", @unix_epoch)
@@ -38,7 +39,8 @@ defmodule CdpPro.Alert do
 
   # TODO: update docs
   @doc false
-  @spec update_subscription_status(Ecto.UUID, boolean) :: {:ok, %Subscription{}} | {:error, :subscription_not_found} | {:error, %Ecto.Changeset{}}
+  @spec update_subscription_status(Ecto.UUID, boolean) ::
+          {:ok, %Subscription{}} | {:error, :subscription_not_found} | {:error, %Ecto.Changeset{}}
 
   def update_subscription_status(id, status) do
     Repo.get(Subscription, id)
@@ -56,7 +58,8 @@ defmodule CdpPro.Alert do
 
   # TODO: update docs
   @doc false
-  @spec update_last_triggered_time(Ecto.UUID, %NaiveDateTime{}) :: {:ok, %Subscription{}} | {:error, :subscription_not_found} | {:error, %Ecto.Changeset{}}
+  @spec update_last_triggered_time(Ecto.UUID, %NaiveDateTime{}) ::
+          {:ok, %Subscription{}} | {:error, :subscription_not_found} | {:error, %Ecto.Changeset{}}
 
   def update_last_triggered_time(id, time) do
     Repo.get(Subscription, id)

@@ -3,7 +3,6 @@ defmodule CdpPro.Email do
 
   @from_email Application.get_env(:cdp_pro, :subscriptions_email)
 
-
   @spec confirm_subscription_email(%CdpPro.Alert.Subscription{}) :: %Bamboo.Email{}
 
   def confirm_subscription_email(subscription) do
@@ -13,7 +12,6 @@ defmodule CdpPro.Email do
     |> render(:confirm)
   end
 
-
   @spec warning_email(%CdpPro.Alert.Subscription{}) :: %Bamboo.Email{}
 
   def warning_email(subscription) do
@@ -22,7 +20,6 @@ defmodule CdpPro.Email do
     |> subject("CDP PRO alert: Your collateralization ratio has reached the CDP Guard limit")
     |> render(:warning)
   end
-
 
   defp base_email(subscription) do
     new_email()
