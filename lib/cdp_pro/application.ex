@@ -14,7 +14,7 @@ defmodule CdpPro.Application do
       },
       CdpPro.Repo,
       CdpProWeb.Endpoint,
-      CdpPro.Worker,
+      CdpPro.Worker
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

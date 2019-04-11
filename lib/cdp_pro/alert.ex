@@ -19,6 +19,7 @@ defmodule CdpPro.Alert do
   @doc false
   def create_or_update_subscription(%{"cdp_id" => cdp_id, "email" => email} = attrs) do
     attrs = Map.put_new(attrs, "last_triggered", @unix_epoch)
+
     case Repo.get_by(Subscription, %{cdp_id: cdp_id, email: email}) do
       nil -> %Subscription{}
       subscription -> subscription

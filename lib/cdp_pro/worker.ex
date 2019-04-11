@@ -18,6 +18,7 @@ defmodule CdpPro.Worker do
 
   def handle_info(:work, state) do
     time_now = NaiveDateTime.utc_now()
+
     Alert.get_all_active_subscriptions()
     |> Enum.map(fn sub ->
       {Contract.get_collateralization_ratio(sub.cdp_id), sub}
@@ -26,7 +27,7 @@ defmodule CdpPro.Worker do
       collateralization_ratio >= sub.warn_ratio
     end)
     |> Enum.filter(fn {_, sub} ->
-      threshold = NaiveDateTime.add(time_now, -24*60*60, :second)
+      threshold = NaiveDateTime.add(time_now, -24 * 60 * 60, :second)
       NaiveDateTime.compare(sub.last_triggered, threshold) == :lt
     end)
     |> Enum.each(fn {_, sub} ->
