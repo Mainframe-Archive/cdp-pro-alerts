@@ -44,8 +44,10 @@ defmodule CdpPro.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:bamboo, "~> 1.2"},
-      {:exw3, "~> 0.4.2"},
-      {:poison, "~> 4.0.1"}
+      # NOTE: temporary change until the upstream fixes the specs
+      {:exw3, git: "https://github.com/mosic/exw3.git"},
+      {:poison, "~> 4.0.1"},
+      {:dialyxir, "~> 1.0.0-rc.5", only: [:dev], runtime: false},
     ]
   end
 

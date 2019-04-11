@@ -1,6 +1,8 @@
 defmodule CdpPro.Contract do
   alias ExW3.Contract
 
+  @spec get_debt(integer) :: {:ok, integer} | {:error, :cdp_id_not_found}
+
   def get_debt(cdp_id) do
     tab = Contract.call(:Tub, :tab, [<<cdp_id::size(256)>>])
 
@@ -9,6 +11,9 @@ defmodule CdpPro.Contract do
       {:ok, debt} -> {:ok, debt}
     end
   end
+
+
+  @spec get_peth_price() :: {:ok, integer} | {:error, :peth_price_not_available}
 
   def get_peth_price() do
     tag = Contract.call(:Tub, :tag)
@@ -19,6 +24,9 @@ defmodule CdpPro.Contract do
     end
   end
 
+
+  @spec get_peth_collateral() :: {:ok, integer} | {:error, :cdp_id_not_found}
+
   def get_peth_collateral(cdp_id) do
     ink = Contract.call(:Tub, :ink, [<<cdp_id::size(256)>>])
 
@@ -27,6 +35,8 @@ defmodule CdpPro.Contract do
       {:ok, collateral} -> {:ok, collateral}
     end
   end
+
+  @spec get_collateralization_ratio(integer) :: integer | {:error, atom}
 
   def get_collateralization_ratio(cdp_id) do
     with {:ok, debt} <- get_debt(cdp_id),
