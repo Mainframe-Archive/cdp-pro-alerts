@@ -23,11 +23,13 @@ table[class="body"] a {
 
   table[class="body"] .wrapper,
 table[class="body"] .article {
-    padding: 10px !important;
+    padding: 0px !important;
   }
 
   table[class="body"] .content {
-    padding: 10px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   table[class="body"] .container {
@@ -35,9 +37,14 @@ table[class="body"] .article {
     width: 100% !important;
   }
 
+  table[class="body"] .btn > tbody > tr > td {
+    padding: 20px 0 !important;
+  }
+
   table[class="body"] .header-container {
     margin: 0px !important;
-    min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   table[class="body"] .text-container {
@@ -107,6 +114,8 @@ table[class="body"] .article {
 </style>
   </head>
   <body class="" style="background-color: #f6f6f6; font-family: 'Muli', 'Source Sans Pro', helvetica; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+    <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">This is preheader text. Some clients will show this text as a
+      preview.</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f6f6f6; width: 100%;" width="100%" bgcolor="#f6f6f6">
       <tr>
         <td style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0;" valign="top">&nbsp;</td>
@@ -117,21 +126,23 @@ table[class="body"] .article {
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class="wrapper" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0; box-sizing: border-box;" valign="top">
-                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="header-container" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #0047e7; min-width: 650px; height: 150px; color: #ffffff; margin: -3px;" width="100%" height="150" bgcolor="#0047e7">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="header-container" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #0047e7; max-width: 650px; width: 650px; min-width: 100%; height: 150px; color: #ffffff; margin: -2px;" width="650" height="150" bgcolor="#0047e7">
                     <tbody>
                       <tr>
                         <td class="header-image-center" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0; text-align: center;" valign="top" align="center">
-                          <img src="placeholder" style="border: none; -ms-interpolation-mode: bicubic; max-width: 212px; margin-top: 50px;">
+                          <img src="https://i.ibb.co/4SFBh2c/cppro.png" style="border: none; -ms-interpolation-mode: bicubic; max-width: 212px; margin-top: 50px;">
                         </td>
                       </tr>
                     </tbody>
                   </table>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
                     <tr>
-                      <td class="text-container" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0; max-width: 406px; margin: 0px auto; margin-top: 100px; display: block;" valign="top">
-                        <p style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;">Hi Jordan!</p>
-                        <h2 style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline;">
-                          Please confirm your email for CDP Pro notifications.
+                      <td class="text-container" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; max-width: 406px; margin: 0px auto; margin-top: 100px; padding: 0 20px; display: block;" valign="top">
+                        <p class="inline" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;">Hi</p>
+                        <p class="inline" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;">Jordan</p>
+                        <p class="inline" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;">!</p>
+                        <h2 style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; margin-top: 10px;">
+                          Please confirm your email for CDP Pro notifications
                         </h2>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;" width="100%">
                           <tbody>
@@ -141,9 +152,7 @@ table[class="body"] .article {
                                   <tbody>
                                     <tr>
                                       <td style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0; border-radius: 3px; text-align: center; background-color: #0047e7;" valign="top" align="center" bgcolor="#0047e7">
-                                        <a href="url" target="_blank" style="border: solid 1px #0047e7; border-radius: 3px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; letter-spacing: 1.4px; font-weight: bold; margin: 0; padding: 10px 25px; text-decoration: none; text-transform: capitalize; background-color: #0047e7; border-color: #0047e7; color: #ffffff;">
-                                          CONFIRM EMAIL
-                                        </a>
+                                        <a href="url" target="_blank" style="border: solid 1px #0047e7; border-radius: 3px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; letter-spacing: 1.4px; font-weight: bold; margin: 0; padding: 10px 35px; text-transform: capitalize; background-color: #0047e7; border-color: #0047e7; color: #ffffff; text-decoration: none;">CONFIRM EMAIL</a>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -158,18 +167,19 @@ table[class="body"] .article {
                     </tr>
                     <tr>
                       <!-- START FOOTER -->
-                      <td class="footer-container" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; padding: 0; max-width: 511px; margin: 0px auto; display: block; margin-bottom: 30px;" valign="top">
+                      <td class="footer-container" style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; max-width: 511px; margin: 0px auto; display: block; padding: 0 20px; margin-bottom: 30px;" valign="top">
                         <div class="footer" style="clear: both; max-width: 511px; margin-top: 200px; width: 100%;">
                           <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
                             <tr>
-                              <td class="content-block" style="font-family: 'Muli', 'Source Sans Pro', helvetica; vertical-align: top; padding: 0; padding-bottom: 10px; padding-top: 10px; color: #000000; font-size: 12px;" valign="top">
+                              <td class="content-block" style="font-family: 'Muli', 'Source Sans Pro', helvetica; vertical-align: top; padding: 0; padding-bottom: 10px; padding-top: 10px; color: #000000; font-size: 12px; text-decoration: none;" valign="top">
                                 <hr class="line" style="border: 0; border-bottom: 1px solid #f6f6f6; margin: 20px 0; border-color: #0047e7;">
-                                <span style="color: #000000; font-size: 12px;">
-                                  This message was sent to jordan@mainframe.com.
-                                  If you don't want to receive these emails from
-                                  CDP Pro in the future, please
+                                <span class="inline" style="display: inline; color: #000000; font-size: 12px; text-decoration: none;">
+                                  This message was sent to </span><span class="inline" style="display: inline; color: #000000; font-size: 12px; text-decoration: none;">jordan@mainframe.com</span>
+                                <span class="inline" style="display: inline; color: #000000; font-size: 12px; text-decoration: none;">
+                                  . If you don't want to receive these emails
+                                  from CDP Pro in the future, please
                                 </span>
-                                <a href="http://i.imgur.com/CScmqnj.gif" style="color: #0047e7; font-size: 12px; text-decoration: none;">unsubscribe</a>.
+                                <a href="unsubscribelink" style="color: #0047e7; font-size: 12px; text-decoration: none;">unsubscribe</a>.
                               </td>
                             </tr>
                           </table>
