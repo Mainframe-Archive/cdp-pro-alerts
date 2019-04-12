@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :cdp_pro, CdpProWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [scheme: "https", host: System.get_env("APP_NAME"), port: 443],
+  url: [scheme: "https", host: System.get_env("HOST"), port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
