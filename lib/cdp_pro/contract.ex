@@ -12,7 +12,7 @@ defmodule CdpPro.Contract do
     end
   end
 
-  @spec get_peth_collateral() :: {:ok, integer} | {:error, :cdp_id_not_found}
+  @spec get_peth_collateral(integer) :: {:ok, integer} | {:error, :cdp_id_not_found}
 
   def get_peth_collateral(cdp_id) do
     ink = Contract.call(:Tub, :ink, [<<cdp_id::size(256)>>])
