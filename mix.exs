@@ -46,6 +46,7 @@ defmodule CdpPro.MixProject do
       {:bamboo, "~> 1.2"},
       # NOTE: temporary change until the upstream fixes the specs
       {:exw3, git: "https://github.com/mosic/exw3.git"},
+      {:exth_crypto, "~> 0.1.6"},
       {:poison, "~> 4.0.1"},
       {:dialyxir, "~> 1.0.0-rc.5", only: [:dev], runtime: false}
     ]
