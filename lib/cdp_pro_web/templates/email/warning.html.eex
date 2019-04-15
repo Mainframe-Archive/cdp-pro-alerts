@@ -212,7 +212,7 @@
                         <h2
                           style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline;"
                         >
-                          Your collateralization ratio has reached your notification limit of
+                          The collateralization ratio for the CDP <%= @subscription.cdp_id %> has reached your notification limit of
                         </h2>
                         <h2
                           class="yellow"
