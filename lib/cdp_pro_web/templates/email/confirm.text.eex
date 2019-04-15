@@ -1,1 +1,6 @@
-Please confirm your subscription to CDP PRO notifications by clicking on the following link: <%= CdpProWeb.Endpoint.url %>/confirm?id=<%= @subscription.id %>
+Please confirm your email for CDP Pro notifications by using the following link: <%= CdpProWeb.Endpoint.url %>/confirm?id=<%= @subscription.id %>
+
+Thanks, CDP Pro Team
+
+
+If you don't want to receive these emails from CDP Pro in the future, please unsubscribe by using the following link: <%= CdpProWeb.Endpoint.url %>/unsubscribe?id=<%= @subscription.id %>
