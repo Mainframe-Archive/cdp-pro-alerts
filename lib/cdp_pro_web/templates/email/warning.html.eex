@@ -187,7 +187,7 @@
                           align="center"
                         >
                           <img
-                            src="placeholder"
+                            src="<%= CdpProWeb.Endpoint.static_url <> "/images/cdp-pro-logo.png" %>"
                             style="border: none; -ms-interpolation-mode: bicubic; max-width: 212px; margin-top: 50px;"
                           />
                         </td>
