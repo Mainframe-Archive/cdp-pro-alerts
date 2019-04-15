@@ -44,6 +44,7 @@ defmodule CdpPro.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:bamboo, "~> 1.2"},
+      {:cors_plug, "~> 2.0"},
       # NOTE: temporary change until the upstream fixes the specs
       {:exw3, git: "https://github.com/mosic/exw3.git"},
       {:exth_crypto, "~> 0.1.6"},

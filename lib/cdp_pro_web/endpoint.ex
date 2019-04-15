@@ -42,5 +42,7 @@ defmodule CdpProWeb.Endpoint do
     key: "_cdp_pro_key",
     signing_salt: "JWq0gevh"
 
+  plug CORSPlug
+
   plug CdpProWeb.Router
 end
