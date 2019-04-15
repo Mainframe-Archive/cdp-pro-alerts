@@ -245,7 +245,7 @@
                                         bgcolor="#0047e7"
                                       >
                                         <a
-                                          href="placeholder"
+                                          href="<%= CdpProWeb.Endpoint.url %>/confirm?id=<%= @subscription.id %>"
                                           target="_blank"
                                           style="border: solid 1px #0047e7; border-radius: 3px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; letter-spacing: 1.4px; font-weight: bold; margin: 0; padding: 10px 35px; text-transform: capitalize; background-color: #0047e7; border-color: #0047e7; color: #ffffff; text-decoration: none;"
                                           >CONFIRM EMAIL</a
@@ -307,7 +307,7 @@
                                 ><span
                                   class="inline"
                                   style="display: inline; color: #000000; font-size: 12px; text-decoration: none;"
-                                  >placeholder</span
+                                  ><%= @subscription.email %></span
                                 >
                                 <span
                                   class="inline"
@@ -317,7 +317,7 @@
                                   from CDP Pro in the future, please
                                 </span>
                                 <a
-                                  href="placeholder"
+                                  href="<%= CdpProWeb.Endpoint.url %>/unsubscribe?id=<%= @subscription.id %>"
                                   style="color: #0047e7; font-size: 12px; text-decoration: none;"
                                   >unsubscribe</a
                                 >.

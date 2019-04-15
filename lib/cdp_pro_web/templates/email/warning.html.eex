@@ -211,19 +211,13 @@
                         <h2
                           style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline;"
                         >
-                          Your ETH has reached your notification price of
+                          Your collateralization ratio has reached your notification limit of
                         </h2>
                         <h2
                           class="yellow"
                           style="font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline; color: #e7bd00;"
                         >
-                          $
-                        </h2>
-                        <h2
-                          class="yellow"
-                          style="font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline; color: #e7bd00;"
-                        >
-                          placeholder
+                          <%= @subscription.warn_ratio %>
                         </h2>
                         <h2
                           style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; display: inline;"
@@ -324,7 +318,7 @@
                                 ><span
                                   class="inline"
                                   style="display: inline; color: #000000; font-size: 12px; text-decoration: none;"
-                                  >placeholder</span
+                                  ><%= @subscription.email %></span
                                 >
                                 <span
                                   class="inline"
@@ -334,7 +328,7 @@
                                   from CDP Pro in the future, please
                                 </span>
                                 <a
-                                  href="placeholder"
+                                  href="<%= CdpProWeb.Endpoint.url %>/unsubscribe?id=<%= @subscription.id %>"
                                   style="color: #0047e7; font-size: 12px; text-decoration: none;"
                                   >unsubscribe</a
                                 >.
