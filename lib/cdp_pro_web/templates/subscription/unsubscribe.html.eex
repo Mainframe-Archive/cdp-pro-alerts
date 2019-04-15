@@ -393,15 +393,6 @@
                         notification emails. Please allow 48 hours for your
                         preferences to be applied.
                       </p>
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="btn btn-primary"
-                      >
-                        <td><a href="placeholder" target="_blank">OPEN CDP PRO</a></td>
-                      </table>
                     </td>
                   </tr>
                 </table>

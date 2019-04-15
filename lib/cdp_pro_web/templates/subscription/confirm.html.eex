@@ -393,15 +393,6 @@
                         emails. You will receive an email if your CDP reaches
                         your notification price.
                       </p>
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="btn btn-primary"
-                      >
-                        <td><a href="placeholder" target="_blank">OPEN CDP PRO</a></td>
-                      </table>
                     </td>
                   </tr>
                 </table>

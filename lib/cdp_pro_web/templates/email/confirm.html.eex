@@ -208,24 +208,6 @@
                         style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; vertical-align: top; max-width: 406px; margin: 0px auto; margin-top: 100px; padding: 0 20px; display: block;"
                         valign="top"
                       >
-                        <p
-                          class="inline"
-                          style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;"
-                        >
-                          Hi
-                        </p>
-                        <p
-                          class="inline"
-                          style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;"
-                        >
-                          placeholder
-                        </p>
-                        <p
-                          class="inline"
-                          style="font-family: 'Muli', 'Source Sans Pro', helvetica; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px; display: inline;"
-                        >
-                          !
-                        </p>
                         <h2
                           style="color: #000000; font-family: 'Muli', 'Source Sans Pro', helvetica; line-height: 1.4; margin: 0; font-size: 24px; font-weight: 700; margin-top: 10px;"
                         >
