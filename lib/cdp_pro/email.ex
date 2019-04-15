@@ -1,6 +1,7 @@
 defmodule CdpPro.Email do
   use Bamboo.Phoenix, view: CdpProWeb.EmailView
 
+  @logo_url Application.get_env(:cdp_pro, :logo_url)
   @from_email Application.get_env(:cdp_pro, :subscriptions_email)
 
   @spec confirm_subscription_email(%CdpPro.Alert.Subscription{}) :: %Bamboo.Email{}
@@ -26,6 +27,7 @@ defmodule CdpPro.Email do
     |> from(@from_email)
     |> to(subscription.email)
     |> assign(:subscription, subscription)
+    |> assign(:logo_url, @logo_url)
     |> put_header("Reply-To", @from_email)
     |> put_layout({CdpProWeb.LayoutView, :email})
   end

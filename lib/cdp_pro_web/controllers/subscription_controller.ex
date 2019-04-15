@@ -6,6 +6,8 @@ defmodule CdpProWeb.SubscriptionController do
   alias CdpPro.Mailer
   alias CdpProWeb.ErrorView
 
+  @logo_url Application.get_env(:cdp_pro, :logo_url)
+
   def create(conn, subscription_params) do
     case Alert.create_or_update_subscription(subscription_params) do
       {:ok, subscription} ->
@@ -41,7 +43,7 @@ defmodule CdpProWeb.SubscriptionController do
 
       {:ok, subscription} ->
         conn
-        |> render("confirm.html", subscription: subscription)
+        |> render("confirm.html", subscription: subscription, logo_url: @logo_url)
     end
   end
 
@@ -55,7 +57,7 @@ defmodule CdpProWeb.SubscriptionController do
 
       {:ok, subscription} ->
         conn
-        |> render("unsubscribe.html", subscription: subscription)
+        |> render("unsubscribe.html", subscription: subscription, logo_url: @logo_url)
     end
   end
 end

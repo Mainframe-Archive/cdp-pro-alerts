@@ -348,7 +348,7 @@
             >
               <tbody>
                 <tr>
-                  <td class="header-image"><img src="<%= CdpProWeb.Endpoint.static_url <> "/images/cdp-pro-logo.png" %>" /></td>
+                  <td class="header-image"><img src="<%= @logo_url %>" /></td>
                 </tr>
               </tbody>
             </table>
