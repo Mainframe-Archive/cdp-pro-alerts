@@ -17,7 +17,9 @@ config :cdp_pro,
 # Configures the endpoint
 config :cdp_pro, CdpProWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: System.get_env("SECRET_KEY_BASE") || "4inyd47D1m4yXPd2RwgzexDCfkbKM2C5ciuSNRk/t5pBNwRVZEUUC1gm9vP2vLXr",
+  secret_key_base:
+    System.get_env("SECRET_KEY_BASE") ||
+      "4inyd47D1m4yXPd2RwgzexDCfkbKM2C5ciuSNRk/t5pBNwRVZEUUC1gm9vP2vLXr",
   render_errors: [view: CdpProWeb.ErrorView, accepts: ~w(json html)],
   pubsub: [name: CdpPro.PubSub, adapter: Phoenix.PubSub.PG2]
 
@@ -32,7 +34,8 @@ config :phoenix, :json_library, Jason
 # Configures ExW3 library
 config :ethereumex,
   client_type: :http,
-  tub_contract_address: System.get_env("TUB_CONTRACT_ADDRESS") || "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
+  tub_contract_address:
+    System.get_env("TUB_CONTRACT_ADDRESS") || "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
   url: "https://mainnet.infura.io/v3/" <> System.get_env("INFURA_KEY")
 
 # Import environment specific config. This must remain at the bottom
