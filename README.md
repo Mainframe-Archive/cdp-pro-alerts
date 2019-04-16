@@ -4,7 +4,7 @@ The purpose of this project is to send emails if the CDP is approaching liquidat
 
 ## Installation
 
-Clone the repo and `cd`` into it:
+Clone the repo and `cd` into it:
 
 ```
 git clone git@github.com:MainframeHQ/cdp-pro-alerts.git
