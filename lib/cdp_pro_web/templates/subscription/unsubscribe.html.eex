@@ -1,60 +1,21 @@
-    <table
-      role="presentation"
-      border="0"
-      cellpadding="0"
-      cellspacing="0"
-      class="body"
-    >
-      <td class="container">
-        <div class="content">
-          <tr>
-            <table
-              role="presentation"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-              class="header-container"
-            >
-              <tbody>
-                <tr>
-                  <td class="header-image"><img src="<%= @logo_url %>" /></td>
-                </tr>
-              </tbody>
-            </table>
-          </tr>
-        </div>
-      </td>
-      <td class="container">
-        <div class="content">
-          <!-- START CENTERED WHITE CONTAINER -->
-          <table role="presentation" class="main">
-            <!-- START MAIN CONTENT AREA -->
-            <tr>
-              <td class="wrapper">
-                <table
-                  role="presentation"
-                  border="0"
-                  cellpadding="0"
-                  cellspacing="0"
-                >
-                  <tr>
-                    <td class="text-container">
-                      <h2>We're sorry to see you go!</h2>
-                      <p>
-                        You have successfully unsubscribed from all CDP Pro
-                        notification emails. Please allow 48 hours for your
-                        preferences to be applied.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="header-container" >
+  <tbody>
+    <tr>
+      <td class="header-image"><img src="<%= @logo_url %>" /></td>
+    </tr>
+  </tbody>
+</table>
 
-            <!-- END MAIN CONTENT AREA -->
-          </table>
-
-          <!-- END CENTERED WHITE CONTAINER -->
-        </div>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+      <td class="text-container">
+        <h2>We're sorry to see you go!</h2>
+        <p>
+          You have successfully unsubscribed from all CDP Pro
+          notification emails. Please allow 48 hours for your
+          preferences to be applied.
+        </p>
       </td>
-    </table>
+    </tr>
+</table>
