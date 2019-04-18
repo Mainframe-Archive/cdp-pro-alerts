@@ -9,6 +9,7 @@ defmodule CdpPro.Contract do
     case tag do
       {:ok, 0} -> {:error, :peth_price_not_available}
       {:ok, price} -> {:ok, price}
+      {:error, error} -> {:error, error}
     end
   end
 
@@ -20,6 +21,7 @@ defmodule CdpPro.Contract do
     case ink do
       {:ok, 0} -> {:error, :cdp_id_not_found}
       {:ok, collateral} -> {:ok, collateral}
+      {:error, error} -> {:error, error}
     end
   end
 
@@ -31,6 +33,7 @@ defmodule CdpPro.Contract do
     case tab do
       {:ok, 0} -> {:error, :cdp_id_not_found}
       {:ok, debt} -> {:ok, debt}
+      {:error, error} -> {:error, error}
     end
   end
 
