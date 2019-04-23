@@ -45,8 +45,8 @@ defmodule CdpPro.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:bamboo, "~> 1.2"},
       {:cors_plug, "~> 2.0"},
-      # NOTE: temporary change until the upstream fixes the specs
-      {:exw3, git: "https://github.com/mosic/exw3.git"},
+      # NOTE: temporary change until the fix lands into a release
+      {:exw3, git: "https://github.com/hswick/exw3.git"},
       {:exth_crypto, "~> 0.1.6"},
       {:poison, "~> 4.0.1"},
       {:dialyxir, "~> 1.0.0-rc.5", only: [:dev], runtime: false}
